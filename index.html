@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boletim Tecnológico</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(135deg, #333, #000);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin: 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .container {
+            width: 90%;
+            margin: auto;
+            padding: 20px 0;
+        }
+
+        .edition-info {
+            text-align: center;
+            font-size: 16px;
+            color: #666;
+            margin: 15px 0;
+        }
+
+        .section-title {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 5px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .main-section, .innovation-section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 150px;
+            object-fit: contain;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .card h2 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 30px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        
+    .deu-ruim-section {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin: 30px 0;
+    }
+
+
+        /* Estilos para os modais */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 12px;
+            width: 60%;
+            height: 80%;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .modal-content img {
+            width: 80%;
+            height: auto;
+            margin: 20px auto;
+            display: block;
+            border-radius: 10px;
+        }
+
+        .modal-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+            text-align: justify;
+            margin-top: 20px;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            color: #333;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        /* Estilos responsivos */
+        @media (max-width: 1024px) {
+            .main-section {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .modal-content {
+                width: 80%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-section {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .modal-content {
+                width: 80%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-section {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 28px;
+            }
+
+            .modal-content {
+                width: 95%;
+                height: 90%;
+                padding: 15px;
+            }
+
+            .modal-content h2 {
+                font-size: 20px;
+            }
+
+            .modal-content p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Boletim Tecnológico</h1>
+</header>
+
+<div class="edition-info">
+    <p>Edição de 02/11/2024</p>
+</div>
+
+<!-- Estrutura de seções -->
+<h2 class="section-title">Inteligência Artificial</h2>
+<div class="main-section">
+    <div class="card" id="card1">
+        <img src="https://t.ctcdn.com.br/TFFVvzs2GDwqR082vZAYeyRyU0o=/1024x576/smart/i951059.jpeg" >
+        <h2>ChatGPT tem alto índice de erro factual em teste da OpenAI</h2>
+    </div>
+    <div class="card" id="card2">
+        <img src="https://clubedamicha.com/wp-content/uploads/2023/03/Clube-da-Micha-e1677836370447.jpeg" >
+        <h2>E aí, Google? ChatGPT agora também é um mecanismo de busca com IA</h2>
+    </div>
+    <div class="card" id="card3">
+        <img src="https://img.odcdn.com.br/wp-content/uploads/2024/06/amd-1024x576.jpg" >
+        <h2>OpenAI expande infraestrutura com chips AMD e desenvolvimento próprio de semicondutores</h2>
+    </div>
+    <div class="card" id="card4">
+        <img src="https://t.ctcdn.com.br/F0vtcCdS4jPIWzWn433mCKWevmE=/1024x576/smart/i771482.jpeg" >
+        <h2>ChatGPT ganha busca pelo histórico de conversas na versão web</h2>
+    </div>
+
+    <div class="card" id="card5">
+        <img src="https://img.odcdn.com.br/wp-content/uploads/2024/10/shutterstock_2361018773-e1730202380646-1920x1080.jpg" >
+        <h2>Nova IA da Meta cria podcasts a partir de texto</h2>
+    </div>
+
+    <div class="card" id="card6">
+        <img src="https://img.odcdn.com.br/wp-content/uploads/2024/10/shutterstock_1995683942.jpg" >
+        <h2>Jarvis, futura IA do Google, pode transformar como navegamos na web</h2>
+    </div>
+</div>
+
+<h2 class="section-title">Inovação Tecnológica</h2>
+<div class="innovation-section">
+    <div class="card" id="card7">
+        <img src="https://t.ctcdn.com.br/yr1xsrPNYkVK_e0F2xNFndsZD9o=/1024x576/smart/i950487.jpeg" >
+        <h2>Magalog: Magalu lança concorrente dos Correios com entregas de até 2h</h2>
+    </div>
+    <div class="card" id="card8">
+        <img src="https://img.odcdn.com.br/wp-content/uploads/2024/10/Captura-de-tela-2024-10-30-084359-2048x1004.png" alt="Imagem Hiring Assistant LinkedIn">
+        <h2>LinkedIn lança Hiring Assistant, IA que agiliza recrutamento</h2>
+    </div>
+    <div class="card" id="card9">
+        <img src="https://mega.ibxk.com.br/2024/10/19/19082103884017.png?ims=1280x690" alt="Imagem Hiring Assistant LinkedIn">
+        <h2>Empresa diz ter criado maneira de nos comunicarmos através dos sonhos</h2>
+    </div>
+    <div class="card" id="card10">
+        <img src="https://tm.ibxk.com.br/2024/10/28/28162715005501.jpeg?ims=1280x480" alt="Imagem Hiring Assistant LinkedIn">
+        <h2>Concorrente da Neuralink restaura visão de pessoas cegas com chip na retina</h2>
+    </div>
+    <div class="card" id="card11">
+        <img src="https://img.odcdn.com.br/wp-content/uploads/2022/03/transito-sao-paulo-1024x682.jpg" alt="Imagem Hiring Assistant LinkedIn">
+        <h2>Semáforos inteligentes: novidade pode virar regra em todo Brasil</h2>
+    </div>
+    <div class="card" id="card12">
+        <img src="https://img.odcdn.com.br/wp-content/uploads/2024/06/Destaque-PIX-1024x576.jpg" alt="Imagem Hiring Assistant LinkedIn">
+        <h2>Pix: nova modalidade já está valendo; veja qual e como funciona</h2>
+    </div>
+</div>
+
+<h2 class="section-title">Deu Ruim?</h2>
+<div class="innovation-section">
+    <div class="card" id="card13">
+        <img src="https://img.odcdn.com.br/wp-content/uploads/2024/07/Apple-Vision-Pro-1-2048x1366.jpg" >
+        <h2>Crise no Metaverso? Apple pode suspender produção do Vision Pro</h2>
+    </div>
+    <div class="card" id="card14">
+        <img src="https://img.odcdn.com.br/wp-content/uploads/2021/10/lixo-eletronico.jpg" >
+        <h2>Corrida das IAs pode criar uma crise do lixo eletrônico</h2>
+    </div>
+    <div class="card" id="card15">
+        <img src="https://img.odcdn.com.br/wp-content/uploads/2024/10/intel1.jpg" >
+        <h2>E agora? Intel registra maior prejuízo de sua história</h2>
+    </div>
+</div>
+
+<h2 class="section-title">PROIBIÇÃO NAS ESCOLAS, NEUROCIÊNCIA E FUTURO DO TRABALHO
+</h2>
+<div class="innovation-section">
+    <div class="card" id="card16">
+        <img src="https://www.cartacapital.com.br/wp-content/uploads/2024/10/celular_sala_aula_mec.jpg" >
+        <h2>Comissão de Educação da Câmara aprova projeto para proibir uso de celulares nas escolas</h2>
+    </div>
+    <div class="card" id="card17">
+        <img src="https://f.i.uol.com.br/fotografia/2024/06/27/1719497849667d74799bb84_1719497849_3x2_lg.jpg" >
+        <h2>Empresas recorrem à neurociência e a jogos para desvendar 'caixa preta' da IA</h2>
+    </div>
+    <div class="card" id="card18">
+        <img src="https://conteudo.imguol.com.br/c/tab/85/2020/07/07/o-empresario-e-filantropo-bill-gates-1594123769189_v2_900x506.jpg.webp" >
+        <h2>Bill Gates aponta 3 profissões que vão sobreviver à inteligência artificial</h2>
+    </div>
+</div>
+
+<!-- Modais -->
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>ChatGPT enfrenta desafios de precisão factual em avaliação da OpenAI</h2>
+        <img src="https://t.ctcdn.com.br/TFFVvzs2GDwqR082vZAYeyRyU0o=/1024x576/smart/i951059.jpeg">
+        <p>
+            A OpenAI lançou recentemente o SimpleQA, um benchmark projetado para medir a precisão factual dos modelos de inteligência artificial, incluindo versões do ChatGPT. Em um teste envolvendo mais de 4 mil perguntas de diversas áreas, os resultados mostraram que, mesmo nas versões mais avançadas, há uma alta taxa de respostas incorretas.
+        </p>
+        <p>
+            <strong>Como o SimpleQA funciona</strong><br>
+            O SimpleQA foca em perguntas objetivas que demandam respostas factuais curtas. A avaliação foi estruturada com a colaboração de treinadores independentes para garantir a qualidade das respostas. As perguntas passaram por uma triagem rigorosa, na qual apenas aquelas que receberam respostas coincidentes entre treinadores foram incluídas no teste. Além disso, um terceiro avaliador revisou amostras para assegurar uma precisão interna de aproximadamente 94,4%.
+        </p>
+        <p>
+            No SimpleQA, as respostas dos modelos são classificadas como “corretas”, “incorretas” ou “não respondidas”. A última categoria foi criada para medir a capacidade dos modelos de reconhecer suas limitações, evitando, assim, gerar informações potencialmente falsas.
+        </p>
+        <p>
+            <strong>Desempenho dos modelos</strong><br>
+            As versões do ChatGPT avaliadas no SimpleQA variaram amplamente em precisão:
+        </p>
+        <ul>
+            <li>GPT-4o-mini: 8,6% corretas, 0,9% não respondidas, 90,5% incorretas;</li>
+            <li>o1-mini: 8,1% corretas, 28,5% não respondidas, 63,4% incorretas;</li>
+            <li>GPT-4o: 38,2% corretas, 1% não respondidas, 60,8% incorretas;</li>
+            <li>o1-preview: 42,7% corretas, 9,2% não respondidas, 48% incorretas.</li>
+        </ul>
+        <p>
+            A OpenAI observou que modelos como o o1-mini e o o1-preview, com maior capacidade de avaliação, demonstraram maior tendência a não responder quando detectavam falta de certeza na resposta. Essa característica sugere uma evolução no raciocínio dos modelos, que pode contribuir para reduzir a geração de informações incorretas.
+        </p>
+        <p>
+            <strong>Desafios contínuos para a precisão factual</strong><br>
+            Apesar do progresso, os resultados do SimpleQA evidenciam a complexidade de alcançar alta factualidade em modelos de IA. A OpenAI reconhece que, para a plena confiabilidade em contextos críticos, como ciência e política, ainda há avanços necessários. Futuras melhorias nos modelos deverão focar não apenas na ampliação do conhecimento, mas também na capacidade de avaliar a validade das informações antes de apresentar uma resposta.
+        </p>
+        <p>
+            A OpenAI reforça que, embora promissores, os modelos ainda estão distantes da precisão factual ideal.
+        </p>
+    </div>
+</div>
+
+<div id="modal2" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>ChatGPT adota busca em tempo real, competindo diretamente com Google e Bing</h2>
+        <img src="https://clubedamicha.com/wp-content/uploads/2023/03/Clube-da-Micha-e1677836370447.jpeg">
+        <p>
+            O ChatGPT agora inclui uma funcionalidade de busca na web em tempo real, ampliando suas capacidades para fornecer informações atualizadas aos usuários. A novidade está disponível para assinantes dos planos Team e Plus e para a lista de espera do SearchGPT. Usuários gratuitos também terão acesso ao recurso nos próximos meses, enquanto assinantes dos planos corporativo e educacional, Enterprise e Edu, receberão a funcionalidade em breve.
+        </p>
+        <p>
+            <strong>Busca integrada e flexível</strong><br>
+            A ferramenta de busca será incorporada à interface do ChatGPT, permitindo que o modelo acesse a web quando necessário para buscar informações específicas. Usuários podem ativar essa busca manualmente, e o recurso está disponível nas versões para navegador e nos aplicativos móveis para iOS e Android.
+        </p>
+        <p>
+            <strong>Tecnologia e parceria com Bing</strong><br>
+            Para viabilizar essa atualização, o ChatGPT utiliza uma versão ajustada do modelo GPT-4, em colaboração com o Bing da Microsoft. A OpenAI também reforça que está trabalhando com parceiros de mídia para garantir o uso responsável de conteúdos, visando evitar conflitos com direitos autorais e protegendo o controle dos criadores sobre seu material.
+        </p>
+        <p>
+            <strong>Impacto e limitações</strong><br>
+            O novo recurso coloca o ChatGPT em competição direta com Google e Bing, oferecendo uma opção de busca sem anúncios, mas com custos operacionais elevados. Por isso, o uso para usuários gratuitos será limitado. A OpenAI espera que a função aumente a precisão e confiabilidade das respostas, especialmente em contextos críticos como eleições e notícias de última hora.
+        </p>
+        <p>
+            <strong>Avanço no mercado de IA</strong><br>
+            Com a busca integrada, a OpenAI responde à crescente pressão de rivais como Google Gemini e Microsoft Copilot, proporcionando uma solução mais completa para consultas informativas.
+        </p>
+    </div>    
+</div>
+
+<div id="modal3" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>OpenAI expande infraestrutura com chips AMD e desenvolvimento próprio de semicondutores</h2>
+        <img src="https://img.odcdn.com.br/wp-content/uploads/2024/06/amd-1024x576.jpg">
+        <p>
+            <strong>Nova estratégia de hardware da OpenAI</strong><br>
+            A OpenAI iniciou o desenvolvimento de seu próprio chip em parceria com a Broadcom e a Taiwan Semiconductor Manufacturing Company (TSMC), visando fortalecer sua infraestrutura de inteligência artificial (IA). A decisão surge para reduzir custos e aumentar a independência no fornecimento de semicondutores, uma estratégia similar à adotada por empresas como Google e Amazon.
+        </p>
+        <p>
+            <strong>Parceria com AMD para diversificar recursos de processamento</strong><br>
+            Em paralelo ao projeto próprio, a OpenAI está integrando os chips MI300X da AMD para reduzir sua dependência da Nvidia, que domina o mercado com mais de 80% de participação. Esta diversificação, realizada em colaboração com a Microsoft por meio da plataforma Azure, responde ao aumento de demanda e à escassez de GPUs Nvidia. A AMD projeta uma receita de US$ 4,5 bilhões com esses novos chips até o final de 2024, refletindo a forte adesão do mercado.
+        </p>
+        <p>
+            <strong>Produção dos novos chips e colaboração com Broadcom e TSMC</strong><br>
+            A fabricação do novo chip da OpenAI será conduzida pela TSMC, com expectativa de lançamento em 2026. A parceria com a Broadcom tem foco na criação de componentes que facilitem a troca de dados entre milhares de processadores, um requisito essencial para os complexos sistemas de IA. Para isso, a OpenAI formou uma equipe com cerca de 20 engenheiros experientes, incluindo ex-desenvolvedores dos Tensor Processing Units (TPUs) do Google.
+        </p>
+        <p>
+            <strong>Pressões de custo e expectativa de receita</strong><br>
+            Com previsão de perdas de US$ 5 bilhões em 2024 e receita estimada em US$ 3,7 bilhões, a OpenAI está intensificando esforços para otimizar seus custos operacionais, que incluem hardware e energia. A empresa continua também sua colaboração com a Nvidia para acesso aos chips Blackwell, buscando equilibrar suas relações com fornecedores.
+        </p>
+        <p>
+            <strong>Impacto no mercado financeiro</strong><br>
+            A notícia do desenvolvimento dos chips OpenAI impulsionou as ações da Broadcom e AMD, que fecharam em alta de 4,5% e 3,7%, respectivamente. A expansão no setor de IA e a estratégia de diversificação da OpenAI vêm aumentando o interesse do mercado no potencial de crescimento e inovação da empresa.
+        </p>
+        
+    </div>
+</div>
+
+<div id="modal4" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>ChatGPT lança busca pelo histórico de conversas na versão web</h2>
+        <img src="https://t.ctcdn.com.br/F0vtcCdS4jPIWzWn433mCKWevmE=/1024x576/smart/i771482.jpeg">
+        <p>
+            <strong>Nova função facilita consultas a interações anteriores</strong><br>
+            A OpenAI implementou uma ferramenta de busca no histórico de conversas na versão web do ChatGPT, permitindo que usuários revisitem informações discutidas previamente. O recurso, inicialmente disponível para assinantes dos planos pagos Plus e Teams, chegará em breve para os pacotes Enterprise, Edu e, posteriormente, aos usuários gratuitos.
+        </p>
+        <p>
+            <strong>Como funciona a busca no histórico</strong><br>
+            Para acessar, basta clicar no ícone de lupa na barra lateral esquerda e digitar o termo desejado. Assim, é possível abrir rapidamente um bate-papo anterior ou retomar uma conversa de onde ela foi interrompida. Esse recurso agiliza o acesso a informações já fornecidas, tornando o ChatGPT mais prático para usuários que precisam de referência constante a interações passadas.
+        </p>
+        <p>
+            <strong>Distribuição gradual</strong><br>
+            A atualização está sendo liberada em etapas. Usuários dos planos Plus e Teams terão acesso imediato, enquanto os planos Enterprise e Edu deverão receber a função ao longo da semana. Para as contas gratuitas, a ferramenta estará disponível até o final de novembro.
+        </p>
+        <p>
+            A nova funcionalidade atende à demanda de maior acessibilidade e organização dentro do ChatGPT, facilitando o uso da IA em contextos de trabalho e estudo.
+        </p>
+    </div>
+</div>
+
+<div id="modal5" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Meta lança NotebookLlama, IA que transforma texto em podcasts</h2>
+        <img src="https://img.odcdn.com.br/wp-content/uploads/2024/10/shutterstock_2361018773-e1730202380646-1920x1080.jpg">
+        <p>
+            <strong>Novo recurso da Meta para criação de áudio</strong><br>
+            A Meta apresentou o NotebookLlama, uma ferramenta de inteligência artificial que gera podcasts a partir de texto, em resposta ao NotebookLM do Google. O recurso usa os modelos de linguagem Llama, desenvolvidos pela própria Meta, para transformar documentos, como PDFs e artigos, em conteúdos de áudio.
+        </p>
+        <p>
+            <strong>Como funciona o NotebookLlama</strong><br>
+            O processo começa com a transcrição do texto fornecido, que é adaptado para a fala com ajustes de entonação e pausas para tornar o conteúdo mais fluido e audível. Embora o sistema acrescente "dramatização" ao áudio, o resultado ainda é considerado inferior em naturalidade em comparação com o NotebookLM do Google. As vozes geradas pela IA tendem a soar robóticas, e em alguns casos as falas se sobrepõem.
+        </p>
+        <p>
+            <strong>Funções adicionais e desafios</strong><br>
+            Além de criar podcasts, o NotebookLlama pode gerar resumos de textos, facilitando o consumo rápido de informações. Contudo, como outras IAs, a ferramenta ainda enfrenta o problema de "alucinações", onde informações imprecisas ou inventadas podem surgir nos conteúdos gerados, afetando a confiabilidade dos podcasts criados.
+        </p>
+        <p>
+            <strong>Expectativas para futuras melhorias</strong><br>
+            Os desenvolvedores da Meta afirmam que melhorias estão previstas, incluindo o uso de modelos mais avançados para aprimorar a qualidade das vozes e a fluidez do áudio. A empresa planeja investir no ajuste desses modelos para oferecer uma experiência mais realista no futuro, respondendo a uma demanda crescente por ferramentas que combinam texto e áudio com maior naturalidade e precisão.
+        </p>
+    </div>
+</div>
+
+
+
+<div id="modal6" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Project Jarvis: IA do Google promete revolucionar a navegação no Chrome</h2>
+        <img src="https://img.odcdn.com.br/wp-content/uploads/2024/10/shutterstock_1995683942.jpg" >
+        <p>
+            <strong>Google testa IA de automação para tarefas online no Chrome</strong><br>
+            O Google está desenvolvendo o "Project Jarvis," uma nova inteligência artificial integrada ao Chrome que poderá automatizar tarefas como pesquisas, compras e reservas, auxiliando os usuários a realizar múltiplas ações com um sistema de "planejamento" avançado. A tecnologia, alimentada pelo modelo de IA Gemini 2.0, deve ser demonstrada ao público em dezembro.
+        </p>
+        <p>
+            <strong>Funcionalidade e operação do Jarvis</strong><br>
+            O Jarvis é projetado para simplificar tarefas comuns no navegador, incluindo preenchimento de formulários, cliques em botões e navegação em diferentes sites. Para executar essas ações, a IA utiliza capturas de tela do navegador para interpretar o ambiente e tomar decisões, tudo sob a supervisão do usuário. A tecnologia, apresentada brevemente no Google I/O 2024, destaca o Gemini como um modelo avançado para organizar e sintetizar informações a partir de comandos específicos.
+        </p>
+        <p>
+            <strong>Inicialmente disponível no Chrome e operando na nuvem</strong><br>
+            O Jarvis, por enquanto, está restrito ao navegador Chrome e opera com uma pequena latência, já que seu processamento ocorre na nuvem. Esse método de operação remota segue o padrão dos testes iniciais do Google, com a possibilidade de ajustes futuros para funcionar em dispositivos locais.
+        </p>
+        <p>
+            <strong>Concorrência no mercado de IA de automação</strong><br>
+            A iniciativa coloca o Google em concorrência direta com outras gigantes tecnológicas, como a Microsoft, que já utiliza o Copilot Vision, e a Apple, que também desenvolve sua própria IA multitarefa. Empresas como OpenAI e Anthropic, com ferramentas como o Claude, também estão criando sistemas de automação para otimizar as rotinas digitais dos usuários.
+        </p>
+        <p>
+            <strong>Previsão de lançamento</strong><br>
+            O Google planeja uma demonstração do Jarvis em dezembro, mas ainda não há data de lançamento para o público geral. A IA será primeiramente disponibilizada para um grupo restrito de testadores, com o objetivo de identificar e corrigir falhas antes de um lançamento mais amplo.
+        </p>
+    </div>
+</div>
+
+
+
+<div id="modal7" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Magalu lança Magalog, nova empresa de logística com entregas em até 2 horas</h2>
+        <img src="https://t.ctcdn.com.br/yr1xsrPNYkVK_e0F2xNFndsZD9o=/1024x576/smart/i950487.jpeg" alt="Imagem Magalog">
+        <p>
+            <strong>Estratégia logística para o e-commerce</strong><br>
+            O grupo Magalu anunciou a Magalog, sua nova empresa de logística, que promete revolucionar a entrega de produtos no Brasil. Com a estrutura herdada do Magalu, a Magalog já conta com uma rede robusta, atendendo 3.800 municípios e alcançando 95% do PIB nacional. Em 139 cidades, a empresa oferecerá entregas ultrarrápidas de até 2 horas.
+        </p>
+        <p>
+            <strong>Operação e principais serviços</strong><br>
+            A Magalog iniciou suas atividades com uma base sólida de clientes, incluindo grandes marcas como Magazine Luiza, Netshoes, Época Cosméticos, KaBuM!, Electrolux, Centauro e Petz. Para suportar sua operação, a empresa dispõe de 21 centros de distribuição, 20 hubs regionais, 153 bases operacionais parceiras e uma frota de 6.000 veículos, além de mais de 9.000 funcionários e 3.500 colaboradores terceirizados.
+        </p>
+        <p>
+            Os serviços principais oferecidos pela Magalog incluem:
+        </p>
+        <ul>
+            <li><strong>Armazenagem e fulfillment:</strong> gerenciamento de estoques para marketplaces.</li>
+            <li><strong>Entrega ultrarrápida:</strong> serviço com entrega em até 2 horas em áreas de até 10 km de lojas ou dark stores.</li>
+            <li><strong>Entrega Rápida Leve:</strong> entrega de pedidos até 30 kg em até 48 horas nas principais cidades.</li>
+            <li><strong>Entrega Rápida Pesada:</strong> transporte de produtos acima de 30 kg com alcance nacional.</li>
+        </ul>
+        <p>
+            <strong>Expansão do potencial logístico</strong><br>
+            Segundo Márcio Chammas, diretor-executivo da Magalog, a nova empresa visa transformar a logística do Magalu, reduzindo prazos e ampliando a cobertura, além de gerar receita para o grupo. A criação da Magalog faz parte da estratégia de consolidar a capacidade logística do Magalu, reunindo ativos e investimentos adquiridos ao longo de 60 anos.
+        </p>
+        <p>
+            Com essa iniciativa, o Magalu busca competir com operadores logísticos tradicionais e se tornar referência em logística para e-commerce no Brasil.
+        </p>
+    </div>
+</div>
+
+<div id="modal8" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>LinkedIn lança Hiring Assistant, IA que agiliza recrutamento</h2>
+        <img src="https://img.odcdn.com.br/wp-content/uploads/2024/10/Captura-de-tela-2024-10-30-084359-2048x1004.png" alt="Imagem Hiring Assistant LinkedIn">
+        <p><strong>Novo assistente de recrutamento com IA</strong><br>
+           O LinkedIn anunciou o Hiring Assistant, seu primeiro agente de recrutamento com inteligência artificial. A ferramenta automatiza tarefas comuns em processos de contratação, incluindo a criação de descrições de vagas, comunicação com candidatos e agendamento de entrevistas. No momento, a novidade está disponível para um grupo seleto de empresas, como Siemens, Canva, Zurich Insurance e AMD, mas deve ser expandida para mais usuários nos próximos meses.
+        </p>
+        <p><strong>Funcionalidades e uso da IA no processo seletivo</strong><br>
+           O Hiring Assistant permite que recrutadores definam as etapas nas quais desejam aplicar a IA. Entre suas funções, a ferramenta cria um mapa de candidatos qualificados, elabora rascunhos de divulgação de vagas e responde a perguntas básicas sobre as posições. Além disso, oferece insights estratégicos que ajudam na tomada de decisões durante o processo de contratação.
+        </p>
+        <p><strong>Expansão e integração com sistemas externos</strong><br>
+           Inicialmente, o assistente está disponível apenas em inglês, mas o LinkedIn planeja ampliar o suporte a outros idiomas. A ferramenta também pode realizar buscas em sistemas de terceiros, complementando a própria base de 1 bilhão de usuários e 68 milhões de empresas na rede.
+        </p>
+        <p><strong>IA no LinkedIn: aprimoramento contínuo para 2025</strong><br>
+           O LinkedIn já vem integrando várias soluções de IA, aproveitando a parceria com a Microsoft e a OpenAI. Entre elas estão assistentes de aprendizagem, geradores de campanhas de marketing e classificadores de candidatos. Para 2025, a plataforma prevê atualizações no LinkedIn Hiring, com foco em atrair talentos qualificados, encontrar candidatos com insights mais profundos e acelerar a conexão com profissionais.
+        </p>
+        <p>
+           O LinkedIn destaca que mensagens de recrutamento assistidas por IA têm uma taxa de aceitação 44% maior e são respondidas 11% mais rápido do que comunicações sem tecnologia.
+        </p>
+    </div>
+</div>
+
+<div id="modal9" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Startup desenvolve tecnologia para comunicação em sonhos lúcidos</h2>
+        <img src="https://mega.ibxk.com.br/2024/10/19/19082103884017.png?ims=1280x690" alt="Imagem REMSpace Tecnologia">
+        <p><strong>REMSpace promete comunicação entre pessoas durante o sono</strong><br>
+           A startup californiana REMSpace afirma estar desenvolvendo uma tecnologia que permite que duas pessoas se comuniquem enquanto sonham. A inovação é voltada para sonhos lúcidos, onde a pessoa está consciente dentro do sonho e consegue exercer algum controle. A REMSpace acredita que essa tecnologia pode ter impacto em áreas como saúde mental e aprendizado, mas ainda está em fase inicial, aguardando validação científica.
+        </p>
+        <p><strong>Como a comunicação ocorre no sonho?</strong><br>
+           A tecnologia da REMSpace detecta e transmite sinais cerebrais entre dois participantes durante o sonho. Em um experimento, a startup relatou ter conseguido transmitir uma palavra de uma pessoa para outra, utilizando fones de ouvido que enviaram o sinal para o segundo participante, que então repetiu a palavra no sonho. A confirmação do experimento, segundo a empresa, foi armazenada em um servidor para verificação ao acordar.
+        </p>
+        <p><strong>Controvérsias e desafios da tecnologia</strong><br>
+           Embora a REMSpace afirme ter obtido esses resultados iniciais, alguns críticos questionam a veracidade das alegações, especialmente após o fundador, Michael Raduga, revelar que passou por um arriscado procedimento cirúrgico para implantar um chip em seu cérebro. O desenvolvimento da startup inclui também a criação de um "dialeto" chamado Remmyo, que usa pequenos movimentos faciais para transmitir informações entre sonhadores.
+        </p>
+        <p><strong>Próximos passos</strong><br>
+           A REMSpace planeja divulgar um estudo revisado por pares nos próximos doze meses, esperando assim trazer mais credibilidade para o projeto. Caso a tecnologia se comprove eficaz, ela poderá abrir novas possibilidades na compreensão dos sonhos e na comunicação em estados alterados de consciência.
+        </p>
+    </div>
+</div>
+
+<div id="modal10" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Concorrente da Neuralink restaura visão de cegos com implante de retina</h2>
+        <img src="https://tm.ibxk.com.br/2024/10/28/28162715005501.jpeg?ims=1280x480" alt="Imagem Science Corporation Implante de Retina">
+        <p><strong>Science Corporation alcança avanços em prótese ocular</strong><br>
+           A Science Corporation, concorrente da Neuralink, anunciou resultados promissores de um implante ocular experimental que restaurou parcialmente a visão em pacientes cegos devido à degeneração macular. Com o implante de retina PRIMA, um chip de 2 nm é cirurgicamente colocado sob a retina em um procedimento de 80 minutos.
+        </p>
+        <p><strong>Como funciona o chip de visão</strong><br>
+           O sistema inclui um par de óculos com câmera que captura imagens e emite padrões de luz infravermelha para o chip implantado. O chip converte esses sinais em estímulos elétricos que são enviados ao cérebro, simulando a visão natural. Esse processo permite que pacientes com visão comprometida voltem a identificar rostos e ler, algo que antes era impossível.
+        </p>
+        <p><strong>Melhorias significativas na acuidade visual</strong><br>
+           Antes do procedimento, os 38 voluntários tinham uma acuidade média de 20/450, bem abaixo do limiar de cegueira (20/200 nos EUA). Após um ano, a maioria dos 32 participantes restantes alcançou uma média de 20/160, conseguindo ler cinco linhas adicionais em gráficos de visão. Alguns participantes atingiram 20/63 utilizando o recurso de zoom da tecnologia, embora cinco voluntários não tenham registrado avanços.
+        </p>
+        <p><strong>Um marco no tratamento da cegueira</strong><br>
+           Frank Holz, coordenador do ensaio, celebrou o avanço como um "marco no tratamento da cegueira causada por degeneração macular". A tecnologia PRIMA oferece uma nova esperança para quem sofre com essa condição, abrindo caminhos para mais inovações na área de próteses visuais.
+        </p>
+    </div>
+</div>
+
+<div id="modal11" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Projeto de Lei propõe semáforos inteligentes em cidades com mais de 150 mil habitantes</h2>
+        <img src="https://img.odcdn.com.br/wp-content/uploads/2022/03/transito-sao-paulo-1024x682.jpg" alt="Imagem Semáforos Inteligentes">
+        <p><strong>PL 3048/24 quer modernizar controle de trânsito no Brasil</strong><br>
+           Um Projeto de Lei em tramitação na Câmara dos Deputados, o PL 3048/24, propõe que cidades brasileiras com mais de 150 mil habitantes adotem semáforos inteligentes. Se aprovado, os municípios terão cinco anos para implementar o sistema, que visa melhorar a mobilidade urbana e reduzir congestionamentos. A medida já é testada em São Paulo, onde os semáforos inteligentes demonstram potencial para otimizar o fluxo de veículos.
+        </p>
+        <p><strong>Como funcionam os semáforos inteligentes?</strong><br>
+           Os semáforos inteligentes utilizam sensores e câmeras para monitorar o tráfego em tempo real, ajustando automaticamente o tempo das luzes verde e vermelha de acordo com a demanda. Essa tecnologia é conectada via fibra ótica e utiliza chips compatíveis com 5G, permitindo ajustes rápidos e controle remoto a partir de uma central. O sistema também facilita a detecção de falhas e o reparo imediato, o que representa um avanço em relação ao modelo convencional, que depende de ajustes manuais.
+        </p>
+        <p><strong>Financiamento e parcerias para implementação</strong><br>
+           Para viabilizar a instalação, o projeto prevê uma linha de financiamento específica no BNDES e possibilita o uso de recursos federais destinados à infraestrutura urbana. Além disso, estados e municípios poderão firmar parcerias com entidades públicas e privadas para ajudar na implementação.
+        </p>
+        <p><strong>Próximos passos legislativos</strong><br>
+           Antes de se tornar lei, o projeto precisa passar pela aprovação das comissões de Viação e Transportes, Desenvolvimento Urbano, Finanças e Tributação, e Constituição e Justiça e de Cidadania, além de ser aprovado por deputados e senadores. A proposta busca trazer uma solução moderna para o trânsito urbano, com o objetivo de melhorar a qualidade de vida nas grandes cidades brasileiras.
+        </p>
+    </div>
+</div>
+
+<div id="modal12" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Pix Agendado Recorrente entra em vigor e permite pagamentos automáticos mensais</h2>
+        <img src="https://img.odcdn.com.br/wp-content/uploads/2024/06/Destaque-PIX-1024x576.jpg" alt="Imagem Pix Agendado Recorrente">
+        <p><strong>Nova funcionalidade do Pix facilita pagamentos periódicos</strong><br>
+           A partir de 28 de outubro, o Banco Central tornou obrigatória a oferta do Pix Agendado Recorrente em bancos e instituições financeiras. Esse novo recurso permite que usuários programem pagamentos recorrentes de um valor fixo para uma data específica, oferecendo mais conveniência para transações frequentes, como aluguel e serviços prestados por profissionais autônomos.
+        </p>
+        <p><strong>Como funciona o Pix Agendado Recorrente?</strong><br>
+           O Pix Agendado Recorrente possibilita ao pagador cadastrar uma transferência que será executada automaticamente em uma data definida. Esse agendamento é feito diretamente pelo usuário, que deve verificar atentamente a chave Pix do destinatário, o valor e a data para evitar erros. Essa funcionalidade é semelhante ao Pix Agendado, porém agora com exigência de suporte por todas as instituições.
+        </p>
+        <p><strong>Segurança e novas medidas do Banco Central</strong><br>
+           Além da introdução do Pix Agendado Recorrente, o Banco Central anunciou novas regras de segurança para o Pix, que entram em vigor em 1º de novembro, com o objetivo de reforçar a proteção contra fraudes e vazamentos.
+        </p>
+    </div>
+</div>
+
+<div id="modal13" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Apple pode suspender produção do Vision Pro devido a baixa demanda</h2>
+        <img src="https://img.odcdn.com.br/wp-content/uploads/2024/07/Apple-Vision-Pro-1-2048x1366.jpg" alt="Imagem Apple Vision Pro">
+        <p><strong>Vendas abaixo do esperado para o Vision Pro</strong><br>
+           A Apple enfrenta dificuldades para popularizar seu headset Vision Pro, lançado no início de 2024. As vendas iniciais do dispositivo ficaram abaixo do esperado, e alguns fornecedores de componentes já interromperam a fabricação. A baixa demanda teria levado a Apple a suspender temporariamente a produção do Vision Pro, uma medida que pode durar até o final do ano, segundo fontes do setor.
+        </p>
+        <p><strong>Barreira de preço e versão mais acessível em desenvolvimento</strong><br>
+           Com um preço inicial de US$ 3.499, o Vision Pro tem sido descrito pelo próprio CEO da Apple, Tim Cook, como um produto de nicho, longe do alcance do público geral. Para contornar essa barreira, a Apple estaria desenvolvendo uma versão mais acessível, custando cerca de US$ 2.000. Esse novo modelo pode incluir materiais mais econômicos e um processador menos potente, além de omitir o recurso EyeSight, que mostra os olhos do usuário, para reduzir custos.
+        </p>
+        <p><strong>Detalhes do Vision Pro</strong><br>
+           O Vision Pro conta com tecnologia avançada, incluindo o sistema operacional visionOS e um conjunto de 12 câmeras e 6 microfones para gravações em 3D. Equipado com os chips M2 e R1, o dispositivo oferece alto desempenho, mas seu peso de 600 gramas e o custo elevado continuam sendo obstáculos significativos. O preço pode alcançar US$ 5.200 com configurações adicionais, como armazenamento expandido e acessórios.
+        </p>
+        <p><strong>Mercado e reação do público</strong><br>
+           Apesar do investimento em recursos tecnológicos de ponta, analistas apontam que o Vision Pro não conseguiu atrair o público em grande escala principalmente por causa do preço elevado, tornando-se inacessível para a maioria dos consumidores. Até o momento, a Apple não divulgou números oficiais de vendas, mas já revisou suas expectativas de comercialização para 2024.
+        </p>
+    </div>
+</div>
+
+<div id="modal14" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Corrida por IA pode desencadear crise de lixo eletrônico</h2>
+        <img src="https://img.odcdn.com.br/wp-content/uploads/2021/10/lixo-eletronico.jpg" alt="Imagem Lixo Eletrônico IA">
+        <p><strong>Estudo alerta para impactos ambientais da expansão da IA</strong><br>
+           A rápida adoção de inteligência artificial (IA) e a consequente demanda por data centers e chips avançados podem gerar um aumento significativo de lixo eletrônico, segundo um estudo recente da Academia Chinesa de Ciências e da Universidade Reichman, em Israel. Caso a tendência atual continue, os resíduos eletrônicos gerados pela indústria da IA poderão somar até 2,5 milhões de toneladas anuais até 2030, equivalente ao descarte de 13 bilhões de iPhones por ano.
+        </p>
+        <p><strong>Ciclo acelerado de substituição e seus riscos</strong><br>
+           A análise considerou a vida útil de servidores equipados com chips Nvidia H100, amplamente usados em aplicações de IA, e estima que esses equipamentos precisem ser substituídos a cada três anos. Com o aumento de data centers e infraestrutura, as emissões de carbono também crescem, pressionando redes elétricas e ampliando o impacto ambiental de empresas como Google e Microsoft.
+        </p>
+        <p><strong>Descarte inadequado e riscos à saúde</strong><br>
+           Grande parte do lixo eletrônico gerado globalmente é descartada de forma inadequada, muitas vezes exportada para países em desenvolvimento, onde trabalhadores ficam expostos a materiais tóxicos. O estudo destaca a importância de considerar todo o ciclo de vida do hardware de IA, não apenas o consumo de energia, mas também o descarte responsável, visando minimizar riscos ambientais e à saúde.
+        </p>
+        <p><strong>Desafios para uma IA sustentável</strong><br>
+           Sasha Luccioni, pesquisadora de IA, alerta sobre a necessidade de repensar o paradigma de expansão constante, onde equipamentos em funcionamento são substituídos pela busca por mais capacidade de processamento. Com a IA avançando rapidamente, a busca por alternativas de reciclagem e práticas mais sustentáveis para o setor se torna cada vez mais urgente.
+        </p>
+    </div>
+</div>
+
+<div id="modal15" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Intel registra maior prejuízo de sua história, com perdas de US$ 16,6 bilhões</h2>
+        <img src="https://img.odcdn.com.br/wp-content/uploads/2024/10/intel1.jpg" alt="Imagem Prejuízo Histórico Intel">
+        <p><strong>Resultados alarmantes no terceiro trimestre</strong><br>
+           A Intel anunciou um prejuízo histórico de US$ 16,6 bilhões no terceiro trimestre de 2024, superando em muito a previsão dos analistas, que esperavam uma perda de US$ 1,1 bilhão. Este resultado representa o maior déficit financeiro desde a fundação da empresa há 56 anos. A receita trimestral foi de US$ 13,3 bilhões, uma queda de 6% em relação ao ano anterior, embora ligeiramente acima das previsões de Wall Street.
+        </p>
+        <p><strong>Ações em queda e suspensão de dividendos</strong><br>
+           A situação impactou severamente as ações da Intel, que desvalorizaram 57% desde o início do ano, enquanto o mercado norte-americano obteve uma valorização média de 20%. Além disso, a Intel suspendeu o pagamento de dividendos pelo segundo ano consecutivo, em uma tentativa de conter custos. A empresa busca economizar US$ 10 bilhões até 2025 para sustentar suas operações e novos investimentos.
+        </p>
+        <p><strong>Demissões e reestruturação</strong><br>
+           A Intel também realizou demissões em massa, cortando cerca de 16.500 funcionários em 2024, acima da meta inicial de 15.000. Esses cortes contribuíram para o aumento das despesas com reestruturação, que somaram US$ 2,8 bilhões apenas no último trimestre. A companhia enfrenta ainda pesados encargos fiscais e baixas contábeis relacionadas ao maquinário.
+        </p>
+        <p><strong>Especulações sobre possível venda</strong><br>
+           Diante das dificuldades, surgiram rumores de que a Intel poderia ser vendida, mas fontes do setor descartam essa possibilidade no momento. A empresa está concentrada em sua reestruturação e na expansão de fábricas, embora o ambiente altamente competitivo e os custos de produção tenham colocado a gigante dos chips em uma posição desafiadora.
+        </p>
+    </div>
+</div>
+
+<div id="modal16" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Câmara dos Deputados aprova projeto para proibir o uso de celulares em escolas</h2>
+        <img src="https://www.cartacapital.com.br/wp-content/uploads/2024/10/celular_sala_aula_mec.jpg" alt="Imagem Proibição de Celulares em Escolas">
+        <p><strong>Proposta visa reduzir distrações e melhorar desempenho escolar</strong><br>
+           A Comissão de Educação da Câmara dos Deputados aprovou um projeto de lei que proíbe o uso de celulares em escolas de ensino básico, uma medida que busca promover um ambiente de maior concentração e participação em sala de aula. Segundo os defensores da proposta, a presença dos dispositivos móveis tem prejudicado a qualidade do ensino ao gerar distrações, diminuir o foco dos alunos e afetar o desempenho acadêmico.
+        </p>
+        <p><strong>Impacto do uso de celulares na educação</strong><br>
+           Estudos e debates sobre o impacto da tecnologia nas escolas apontam que o uso excessivo de celulares pode desviar a atenção dos estudantes das atividades pedagógicas, além de favorecer comportamentos inadequados, como o cyberbullying. Muitos educadores também relatam dificuldades em manter o engajamento dos alunos diante das constantes distrações proporcionadas pelos dispositivos. Dessa forma, o projeto de lei pretende reforçar o papel das escolas como espaços de aprendizado e socialização, onde o foco principal deve estar nas interações educativas.
+        </p>
+        <p><strong>Exceções e aplicação do projeto</strong><br>
+           Embora a proposta limite o uso de celulares, algumas exceções estão previstas para situações em que o dispositivo é utilizado para fins pedagógicos, sob orientação dos professores. O projeto também prevê que cada escola estabeleça normas específicas para regulamentar o uso de dispositivos móveis, respeitando as diretrizes gerais. A proibição do uso de celulares poderá ser ajustada para atender a necessidades especiais, como o uso de ferramentas de acessibilidade para alunos com deficiência.
+        </p>
+        <p><strong>Próximos passos para aprovação</strong><br>
+           Para que o projeto de lei entre em vigor, ele ainda precisa passar por outras comissões da Câmara dos Deputados, como a Comissão de Constituição e Justiça, e ser aprovado pelo Senado. Caso obtenha apoio, seguirá para sanção presidencial. A proposta reflete um movimento de diversos países que adotaram restrições ao uso de celulares nas escolas, como França e China, onde estudos preliminares indicam melhorias no desempenho escolar e na disciplina após a implementação dessas políticas.
+        </p>
+        <p><strong>Reações e discussões em torno do projeto</strong><br>
+           A iniciativa tem gerado discussões entre educadores, pais e especialistas. Alguns veem a medida como uma forma eficaz de criar um ambiente de aprendizado mais produtivo e livre de distrações. Outros acreditam que a proibição completa pode ser um retrocesso, visto que o uso de tecnologias pode enriquecer a experiência educacional se for bem orientado. A expectativa é que, com o avanço do projeto, os debates sobre como equilibrar tecnologia e educação continuem, visando definir a melhor abordagem para o contexto educacional brasileiro.
+        </p>
+    </div>
+</div>
+
+<div id="modal17" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Empresas utilizam neurociência e jogos para entender o funcionamento das IAs generativas</h2>
+        <img src="https://f.i.uol.com.br/fotografia/2024/06/27/1719497849667d74799bb84_1719497849_3x2_lg.jpg" alt="Imagem Neurociência e IA">
+        <p><strong>Esforço para desvendar a "caixa preta" da IA</strong><br>
+           Modelos de inteligência artificial, como os da OpenAI e da Anthropic, são altamente complexos e, por isso, ainda são amplamente incompreendidos. O público e os formuladores de políticas têm dificuldade em confiar em uma tecnologia que opera como uma “caixa preta”, processando trilhões de cálculos que produzem respostas sem que o caminho até elas seja claro. Empresas como Anthropic e OpenAI estão buscando maneiras inovadoras de tornar esses processos mais transparentes, usando tecnologias inspiradas na neurociência e até jogos.
+        </p>
+        <p><strong>Experimentos com neurociência para mapear a IA</strong><br>
+           A Anthropic, criadora do chatbot Claude, está aplicando métodos neurocientíficos para tentar entender como sua IA processa informações. Utilizando abordagens similares às usadas em estudos do cérebro humano, os pesquisadores estão mapeando "recursos mentais" do modelo, uma série de conceitos e referências que a IA utiliza, como conflitos de interesse e noções científicas. Esse processo revela quais "neurônios" (parâmetros do sistema) estão associados a diferentes tipos de informação, ajudando a empresa a identificar padrões e ajustar o comportamento do modelo.
+        </p>
+        <p><strong>Resultados e descobertas</strong><br>
+           Até agora, a Anthropic já identificou milhões desses recursos mentais em seu modelo Claude, incluindo padrões positivos e traços problemáticos, como tendências para bajulação ou manipulação. Esses insights permitem que a empresa suprime comportamentos indesejados e melhore a precisão das respostas, mas a complexidade dos circuitos da IA ainda é um grande desafio.
+        </p>
+        <p><strong>Jogos para aumentar a transparência da IA</strong><br>
+           A OpenAI, por sua vez, está testando uma estratégia que coloca modelos de IA em um “jogo” de validação mútua. Neste experimento, um modelo menos avançado, chamado “verificador”, analisa as respostas geradas pelo modelo principal, o GPT-4, e avalia se elas são claras e compreensíveis. O “verificador” é testado contra duas versões do GPT-4: uma programada para ajudar genuinamente e outra para persuadir o verificador de respostas erradas. Esse sistema iterativo é projetado para tornar as respostas da IA mais transparentes e confiáveis, e os resultados mostram que a IA se torna mais eficaz em explicar suas respostas.
+        </p>
+        <p><strong>Segurança e regulamentação em IA</strong><br>
+           A falta de transparência na IA preocupa autoridades e especialistas, que temem que modelos de linguagem possam ser usados para fins maliciosos, como a criação de armas cibernéticas ou biológicas. Em resposta, países como os EUA e a União Europeia criaram entidades específicas para monitorar os riscos da IA. No Brasil, o governo planeja fundar um instituto de avaliação de IA, reforçando a necessidade de supervisão e controle dessa tecnologia em crescimento.
+        </p>
+        <p>
+           Essa busca por transparência é fundamental para garantir que a IA evolua de forma segura e sob a supervisão adequada, atendendo às demandas de confiança e segurança que surgem com o avanço dessas tecnologias.
+        </p>
+    </div>
+</div>
+
+<div id="modal18" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Bill Gates indica três profissões que resistirão ao avanço da IA</h2>
+        <img src="https://conteudo.imguol.com.br/c/tab/85/2020/07/07/o-empresario-e-filantropo-bill-gates-1594123769189_v2_900x506.jpg.webp" alt="Imagem de Bill Gates">
+        <p>
+            Em artigo recente, o empresário Bill Gates apontou três áreas que, segundo ele, devem prosperar no futuro, apesar das mudanças trazidas pela inteligência artificial (IA). Para Gates, o desenvolvimento de energias alternativas, a biociência da saúde e o próprio setor de IA estarão em alta e terão ampla demanda por profissionais qualificados.
+        </p>
+        <p><strong>1. Desenvolvimento de energias alternativas</strong><br>
+            Com a necessidade de combater as mudanças climáticas, Gates acredita que a busca por fontes de energia limpas, como a eólica, solar e nuclear, continuará crescendo. Ele destaca que a energia nuclear, em particular, será essencial para fornecer uma fonte confiável e livre de carbono. Gates fundou a TerraPower, empresa de energia nuclear, que pretende inaugurar sua primeira usina até 2030. Para ele, o avanço nas energias alternativas abrirá diversas oportunidades de emprego e investimento.
+        </p>
+        <p><strong>2. Biociências da saúde</strong><br>
+            Gates prevê que a área de biociências continuará expandindo, impulsionada pela necessidade de criar novos medicamentos e tratamentos. A IA, segundo ele, pode ser uma ferramenta poderosa para agilizar o desenvolvimento de drogas e vacinas, além de auxiliar no combate a doenças que afetam principalmente países de baixa renda. Ele destaca que tecnologias como ultrassons guiados por IA já estão ajudando na identificação de gravidezes de risco na Índia, mostrando o potencial transformador dessa combinação de saúde e inteligência artificial.
+        </p>
+        <p><strong>3. Desenvolvimento da própria IA</strong><br>
+            Curiosamente, Gates também aposta que o próprio setor de desenvolvimento da IA terá uma grande demanda de profissionais. Ele argumenta que, enquanto a IA acelera as descobertas científicas, o desenvolvimento e o aprimoramento de sistemas de IA ainda dependerão da criatividade humana. Ferramentas personalizadas e específicas para cada cultura ou necessidade local, como aplicativos de saúde adaptados a idiomas locais, demonstram o quanto o setor ainda pode evoluir e diversificar, gerando oportunidades de trabalho globalmente.
+        </p>
+        <p><strong>Oportunidades e o papel social da IA</strong><br>
+            Gates acredita que a IA poderá ajudar a reduzir desigualdades, possibilitando que novas inovações cheguem ao mundo em desenvolvimento mais rapidamente. Ele prevê uma ampla adoção da IA em países de alta renda até 2025, enquanto nações emergentes podem acompanhar essa tendência até 2026, acelerando a acessibilidade a avanços tecnológicos que antes levavam anos para se disseminar.
+        </p>
+    </div>
+</div>
+
+
+<footer>
+    <p>&copy; 2024 Boletim Tecnológico</p>
+</footer>
+
+<!-- Scripts para Modais -->
+<script>
+    const cards = document.querySelectorAll('.card');
+    const modals = document.querySelectorAll('.modal');
+    const closes = document.querySelectorAll('.close');
+
+    cards.forEach((card, index) => {
+        card.addEventListener('click', () => {
+            modals[index].style.display = 'block';
+        });
+    });
+
+    closes.forEach((close, index) => {
+        close.addEventListener('click', () => {
+            modals[index].style.display = 'none';
+        });
+    });
+
+    window.onclick = function(event) {
+        modals.forEach(modal => {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
